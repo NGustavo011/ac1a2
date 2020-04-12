@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionários</title>
+</head>
+<body>
+    <h2>FUNCIONARIOS</h2>
+    <div>
+        <h3>
+            <table width="500px">
+                <thead>   
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>CPF</th>
+                    <th>Salário</th>
+                </thead>
+                    <tr th:each="funcionarios:${funcionarios}">
+                    <td th:text="${funcionarios?.id}"/>
+                    <td th:text="${funcionarios?.nome}" />
+                    <td th:text="${funcionarios?.idade}" />
+                    <td th:text="${funcionarios?.CPF}" />
+                    <td th:text="${funcionarios?.salario}" />
+            </tr>
+            </table>
+        </h3>
+    </div>
+
+    <h2>CADASTRO</h2>
+
+    <form th:action="@{/}" method="POST">
+        <input type="text" name="id" placeholder="id"/>
+        <input type="text" name="nome" placeholder="nome"/>
+        <input type="text" name="idade" placeholder="idade"/>
+        <input type="text" name="CPF" placeholder="CPF"/>
+        <input type="text" name="salario" placeholder="salario"/>
+        
+        <div className="input-group">
+        <button className="button" type="submit"> Cadastrar </button>
+    </form>
+    
+</body>
+</html>
